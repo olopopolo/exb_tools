@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) http://www.rrz.uni-hamburg.de/exmaralda -->
+<basic-transcription>
+<head>
+<meta-information><project-name></project-name><transcription-name></transcription-name><referenced-file url=""/><ud-meta-information></ud-meta-information><comment></comment><transcription-convention></transcription-convention></meta-information><speakertable><speaker id="SPK0">
+<abbreviation>AUT</abbreviation>
+<sex value="u"/>
+<languages-used></languages-used>
+<l1></l1>
+<l2></l2>
+<ud-speaker-information>
+</ud-speaker-information>
+<comment></comment>
+</speaker>
+</speakertable></head>
+<basic-body>
+<common-timeline>
+<tli id="T0"/>
+<tli id="T1"/>
+<tli id="T2"/>
+<tli id="T3"/>
+<tli id="T4"/>
+<tli id="T5"/>
+<tli id="T6"/>
+<tli id="T7"/>
+<tli id="T8"/>
+<tli id="T9"/>
+<tli id="T10"/>
+<tli id="T11"/>
+<tli id="T12"/>
+<tli id="T13"/>
+<tli id="T14"/>
+<tli id="T15"/>
+<tli id="T16"/>
+<tli id="T17"/>
+<tli id="T18"/>
+<tli id="T19"/>
+<tli id="T20"/>
+<tli id="T21"/>
+<tli id="T22"/>
+<tli id="T23"/>
+<tli id="T24"/>
+<tli id="T25"/>
+<tli id="T26"/>
+<tli id="T27"/>
+<tli id="T28"/>
+<tli id="T29"/>
+<tli id="T30"/>
+<tli id="T31"/>
+<tli id="T32"/>
+<tli id="T33"/>
+<tli id="T34"/>
+<tli id="T35"/>
+<tli id="T36"/>
+<tli id="T37"/>
+<tli id="T38"/>
+<tli id="T39"/>
+<tli id="T40"/>
+<tli id="T41"/>
+<tli id="T42"/>
+<tli id="T43"/>
+<tli id="T44"/>
+<tli id="T45"/>
+<tli id="T46"/>
+<tli id="T47"/>
+<tli id="T48"/>
+<tli id="T49"/>
+<tli id="T50"/>
+<tli id="T51"/>
+<tli id="T52"/>
+<tli id="T53"/>
+<tli id="T54"/>
+<tli id="T55"/>
+<tli id="T56"/>
+<tli id="T57"/>
+<tli id="T58"/>
+<tli id="T59"/>
+<tli id="T60"/>
+<tli id="T61"/>
+<tli id="T62"/>
+<tli id="T63"/>
+<tli id="T64"/>
+<tli id="T65"/>
+<tli id="T66"/>
+<tli id="T67"/>
+<tli id="T68"/>
+<tli id="T69"/>
+<tli id="T70"/>
+<tli id="T71"/>
+<tli id="T72"/>
+<tli id="T73"/>
+<tli id="T74"/>
+<tli id="T75"/>
+<tli id="T76"/>
+<tli id="T77"/>
+<tli id="T78"/>
+<tli id="T79"/>
+<tli id="T80"/>
+</common-timeline>
+<tier id="TIE0" speaker="SPK0" category="v" type="t" display-name="TXT"></tier><tier id="TIE1" speaker="SPK0" category="v" type="t" display-name="Verb_ Target Hypothesis"></tier><tier id="TIE11" speaker="SPK0" category="v" type="t" display-name="Verb_THDiff"></tier><tier id="TIE4" speaker="SPK0" category="v" type="t" display-name="Verb_Deviation type_1"></tier><tier id="TIE12" speaker="SPK0" category="v" type="t" display-name="Verb_Deviation type_2"></tier><tier id="TIE2" speaker="SPK0" category="v" type="t" display-name="Verb_Transfer"></tier><tier id="TIE5" speaker="SPK0" category="v" type="t" display-name="Verb_Tense"></tier><tier id="TIE6" speaker="SPK0" category="v" type="t" display-name="Verb_Complex forms"></tier><tier id="TIE3" speaker="SPK0" category="v" type="t" display-name="Verb_Aspect Original"></tier><tier id="TIE7" speaker="SPK0" category="v" type="t" display-name="Verb_Aspect Target"></tier><tier id="TIE8" speaker="SPK0" category="v" type="t" display-name="Nonfinite verb form"></tier><tier id="TIE9" speaker="SPK0" category="v" type="t" display-name="Verb_Modality"></tier><tier id="TIE10" speaker="SPK0" category="v" type="t" display-name="Verb_Semantics"></tier></basic-body>
+</basic-transcription>
