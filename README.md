@@ -9,3 +9,9 @@ The script `exb2csv.py` is used to read a exb annotated file and convert it into
 ```
 py exb2csv.py -x <annotated exb file path> -t <template file path>
 ```
+
+## Compute Inter Annotator Agreement
+The script `exb2IAA.py` is used to compute IAA between two .exb files.
+```
+py exb2IAA.py -x <annotator-1 .exb file path> -y <annotator-2 .exb file path>
+```

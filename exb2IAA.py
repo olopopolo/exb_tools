@@ -13,6 +13,7 @@ fields2 = exb_utils.read_fields(exb_template=args.input2)
 
 if not (fields1 == fields2):  # check that we have the exact same tiers in the two files
     print('WARNING! The two files do NOT have the same tiers/fields!')
+    sys.exit(1)
 
 # read rows from both files
 rows1, tokens1 = exb_utils.read_tokens_annotations(exb_input=args.input1, fields=fields1, debug=False)
