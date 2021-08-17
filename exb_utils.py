@@ -1,4 +1,14 @@
 import xml.dom.minidom as md
+import glob
+
+
+def get_file_list(files_arg):
+    file_list = []
+    for f in files_arg:
+        f_list = glob.glob(f)
+        for x in sorted(f_list):
+            file_list.append(x)
+    return file_list
 
 
 
