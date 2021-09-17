@@ -101,3 +101,20 @@ def cohen_kappa(ann1: list, ann2: list, verbose=False):
         return None
     else:
         return round((A - E) / (1 - E), 4)
+
+# this map will hold all the labels for each tier.
+# NOTE: we also consider an empty tag for each tier as a possible label
+labels_map = {
+
+    'Verb_THDiff': ['THO', 'INS', 'DEL', 'CHA', 'SPLIT', 'MERGE', 'MOVS', 'MOVT', ''],
+    'Verb_Deviation type_1': ['SEM', 'LEX', 'INFL', 'AUX', 'ASP', 'TEN', 'NEG', 'OTH', ''],
+    'Verb_Deviation type_2': ['SEM', 'LEX', 'INFL', 'AUX', 'ASP', 'TEN', 'NEG', 'OTH', ''],
+    'Verb_Transfer': ['FOR', 'CSW', 'COG', 'SEM', 'CAL', 'OTH', ''],
+    'Verb_Tense': ['P', 'NP', ''],
+    'Verb_Complex forms': ['PP', 'PaP', 'FP', ''],
+    'Verb_Aspect Original': ['PR', 'NPR', ''],
+    'Verb_Aspect Target': ['PR', 'NPR', ''],
+    'Nonfinite verb form': ['TO', 'BI', 'GE', 'PAR', ''],
+    'Verb_Modality': ['MD', 'SA', ''],
+    'Verb_Semantics': ['ACT', 'ASP', 'CAU', 'COM', 'EXI', 'MEN', 'OCC', '']
+}

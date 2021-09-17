@@ -8,11 +8,13 @@ args = parser.parse_args()
 import exb_utils
 import sys
 
+import sklearn.metrics
+
 fields1 = exb_utils.read_fields(exb_template=args.input1)
 fields2 = exb_utils.read_fields(exb_template=args.input2)
 
 if not (fields1 == fields2):  # check that we have the exact same tiers in the two files
-    print('WARNING! The two files do NOT have the same tiers/fields!')
+    print('ERROR! The two files do NOT have the same tiers/fields!')
     sys.exit(1)
 
 # read rows from both files
@@ -20,13 +22,14 @@ rows1, tokens1 = exb_utils.read_tokens_annotations(exb_input=args.input1, fields
 rows2, tokens2 = exb_utils.read_tokens_annotations(exb_input=args.input2, fields=fields2, debug=False)
 
 if not (tokens1 == tokens2):  # check that we have the exact same tiers in the two files
-    print('WARNING! The two files have tokens not matching with each other!!')
+    print('ERROR! The two files have tokens not matching with each other!!')
     sys.exit(1)
 
 def avg(list):
     return sum(list)/len(list)
 
 CKappa_score = []
+CKappa_score_labels = []
 
 # let's compute Cohen's Kappa statistics for each tier
 for ix_f, f in enumerate(fields1):
@@ -34,6 +37,8 @@ for ix_f, f in enumerate(fields1):
         continue    # skip the first column, i.e. the token column
 
     field_scores = []
+    field_scores_labels = []
+
     for ix_t, t in enumerate(rows1):    # for each row/token
         annotation_list1 = exb_utils.get_column(rows1, ix_f)    # retrieve annotations for the tier/column to be analyzed
         annotation_list2 = exb_utils.get_column(rows2, ix_f)
@@ -41,22 +46,31 @@ for ix_f, f in enumerate(fields1):
         score = exb_utils.cohen_kappa(annotation_list1, annotation_list2)
 
         if not score is None:
-            field_scores.append(
-                score
-            )
+            field_scores.append(score)
+
+            if not (f in ['Verb_Target Hypothesis0', 'Verb_ Target Hypothesis 1']): # skip the first two tiers, as they don't have any label associated
+                kappa = sklearn.metrics.cohen_kappa_score(annotation_list1, annotation_list2, labels=exb_utils.labels_map[f])
+                # cm = sklearn.metrics.confusion_matrix(annotation_list1, annotation_list2) # what to do with this?
+            else:
+                kappa = sklearn.metrics.cohen_kappa_score(annotation_list1, annotation_list2)
+
+            field_scores_labels.append(kappa)
+
+
+
 
     if len(field_scores) > 0:
-        CKappa_score.append(
-            avg(field_scores)
-        )    # append average score for this field
-        print(f, 'average score:', avg(field_scores))
+        CKappa_score.append(avg(field_scores))    # append average score for this field
+        CKappa_score_labels.append(avg(field_scores_labels))
+        print(f, 'average score:\t', "{:.4f}".format(avg(field_scores)), 'no labels,\t', "{:.4f}".format(avg(field_scores_labels)), 'considering labels')
     else:
         print('WARNING: Ignoring field', f)
 
 print()
 print('AVERAGE Inter Annotator Agreement for all tiers (excluding ignored/single class fields):')
 print(avg(CKappa_score))
-
+print('AVERAGE Inter Annotator Agreement for all tiers CONSIDERING LABELS (excluding ignored/single class fields):')
+print(avg(CKappa_score_labels))
 
 
 
