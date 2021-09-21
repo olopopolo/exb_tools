@@ -2,6 +2,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Read annotations from x2 .exb files and extract statistics')
 parser.add_argument('-x', '--input1', required=True, help='The path of .exb file to process.')
 parser.add_argument('-y', '--input2', required=True, help='The path of .exb file to process.')
+parser.add_argument('--thresh', type=float, default=1.0, help='Kappa score threshold. When the Kappa is below this value, a confusion matrix is generated.')
 
 args = parser.parse_args()
 
@@ -50,7 +51,11 @@ for ix_f, f in enumerate(fields1):
 
             if not (f in ['Verb_Target Hypothesis0', 'Verb_ Target Hypothesis 1']): # skip the first two tiers, as they don't have any label associated
                 kappa = sklearn.metrics.cohen_kappa_score(annotation_list1, annotation_list2, labels=exb_utils.labels_map[f])
-                # cm = sklearn.metrics.confusion_matrix(annotation_list1, annotation_list2) # what to do with this?
+                if kappa < args.thresh:
+                    cm = sklearn.metrics.confusion_matrix(annotation_list1, annotation_list2, labels=exb_utils.labels_map[f]) # what to do with this?
+                    print('Tier:',f, '- Token:', t )
+                    print('Labels: ', exb_utils.labels_map[f])
+                    print(cm)
             else:
                 kappa = sklearn.metrics.cohen_kappa_score(annotation_list1, annotation_list2)
 
