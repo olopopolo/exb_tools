@@ -8,7 +8,9 @@ args = parser.parse_args()
 
 import exb_utils
 import sys
-
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sn
 import sklearn.metrics
 
 fields1 = exb_utils.read_fields(exb_template=args.input1)
@@ -53,9 +55,16 @@ for ix_f, f in enumerate(fields1):
                 kappa = sklearn.metrics.cohen_kappa_score(annotation_list1, annotation_list2, labels=exb_utils.labels_map[f])
                 if kappa < args.thresh:
                     cm = sklearn.metrics.confusion_matrix(annotation_list1, annotation_list2, labels=exb_utils.labels_map[f]) # what to do with this?
-                    print('Tier:',f, '- Token:', t )
+                    print('Tier:', f, '- Token:', t)
                     print('Labels: ', exb_utils.labels_map[f])
                     print(cm)
+                    df_cm = pd.DataFrame(cm, exb_utils.labels_map[f], exb_utils.labels_map[f])
+                    #sn.set(font_scale=1.4)
+                    sn.heatmap(df_cm, annot=True)  # font size
+                    plt.title(args.input1+' - '+f)
+                    plt.xlabel('Annotator 2')
+                    plt.ylabel('Annotator 1')
+                    plt.show()
             else:
                 kappa = sklearn.metrics.cohen_kappa_score(annotation_list1, annotation_list2)
 
