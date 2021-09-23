@@ -25,5 +25,19 @@ Similarly, is it possible to input multiple files and use a wildcard (i.e. `*`) 
 ## Compute Inter Annotator Agreement
 The script `exb2IAA.py` is used to compute IAA between two .exb files.
 ```
-py exb2IAA.py -x <annotator-1 .exb file path> -y <annotator-2 .exb file path>
+usage: exb2IAA.py [-h] -x INPUT1 -y INPUT2 [--thresh THRESH] [--outdir OUTDIR]
+
+Read annotations from x2 .exb files and extract statistics
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -x INPUT1, --input1 INPUT1
+                        The path of .exb file to process.
+  -y INPUT2, --input2 INPUT2
+                        The path of .exb file to process.
+  --thresh THRESH       Kappa score threshold. When the Kappa is below this
+                        value, a confusion matrix is generated.
+  --outdir OUTDIR       Choose where to store the output data (plots and other
+                        things). If not specified, the first file's path
+                        (specified with -x/--input1) will be used.
 ```
