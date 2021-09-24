@@ -109,7 +109,7 @@ labels_map = {
     'Verb_THDiff': ['THO', 'INS', 'DEL', 'CHA', 'SPLIT', 'MERGE', 'MOVS', 'MOVT', ''],
     'Verb_Deviation type_1': ['SEM', 'LEX', 'INFL', 'AUX', 'ASP', 'TEN', 'NEG', 'OTH', ''],
     'Verb_Deviation type_2': ['SEM', 'LEX', 'INFL', 'AUX', 'ASP', 'TEN', 'NEG', 'OTH', ''],
-    'Verb_Transfer': ['FOR', 'CSW', 'COG', 'SEM', 'CAL', 'OTH', 'ORTH', '],
+    'Verb_Transfer': ['FOR', 'CSW', 'COG', 'SEM', 'CAL', 'OTH', 'ORTH', ''],
     'Verb_Tense': ['P', 'NP', ''],
     'Verb_Complex forms': ['PP', 'PaP', 'FP', ''],
     'Verb_Aspect Original': ['PR', 'NPR', ''],
